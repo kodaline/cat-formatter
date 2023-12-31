@@ -1,10 +1,10 @@
 {
     "name": "Cat Formatter",
     "version": "0.0.1",
-    "description": "Description of cat_formatter.",
-    "author_name": "Me",
-    "author_url": "https://mywebsite.me",
-    "plugin_url": "https://github.com/my_name/cat_formatter",
-    "tags": "cat, template, example",
-    "thumb": "https://raw.githubusercontent.com/my_repo_path/cat_formatter.png"
+    "description": "A simple plugin that formats the cat's answer with more spacing between p tags.",
+    "author_name": "Aline",
+    "author_url": "https://it.linkedin.com/in/adelina-georgieva",
+    "plugin_url": "https://github.com/kodaline/cat_formatter",
+    "tags": "formatting, utility",
+    "thumb": "https://raw.githubusercontent.com/kodaline/cat-formatter/blob/main/img/cat-formatter-logo.png?raw=true"
 }

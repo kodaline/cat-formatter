@@ -1,31 +1,22 @@
 from cat.mad_hatter.decorators import tool, hook, plugin
-from pydantic import BaseModel
-from datetime import datetime, date
+from pydantic import BaseModel, Field
+from cat.log import log
 
 class MySettings(BaseModel):
-    required_int: int
-    optional_int: int = 69
-    required_str: str
-    optional_str: str = "meow"
-    required_date: date
-    optional_date: date = 1679616000
+    separator: str = Field(
+        title="Sentence formatter",
+        description="Choose formatter, e.g. html 'br'",
+        default="""br""",
+        extra={"type": "Text"}
+    )
 
 @plugin
 def settings_model():
     return MySettings
 
-@tool
-def get_the_day(tool_input, cat):
-    """Get the day of the week. Input is always None."""
-
-    dt = datetime.now()
-
-    return dt.strftime('%A')
-
 @hook
 def before_cat_sends_message(message, cat):
-
-    prompt = f'Rephrase the following sentence in a grumpy way: {message["content"]}'
-    message["content"] = cat.llm(prompt)
-
+    settings = cat.mad_hatter.get_plugin().load_settings()
+    separator = "<" + settings["separator"] + ">"
+    message["content"] = message["content"].replace("\n", separator)
     return message
