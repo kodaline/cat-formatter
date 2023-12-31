@@ -17,4 +17,3 @@ Once you have setup the `cat`, you need to:
 1. Download the plugin from the registry, or the `zip` from the plugin's repository
 2. Set the html tag (e.g. `br`)
 3. Talk with the cat and see your better answer formatting!
-```bash
